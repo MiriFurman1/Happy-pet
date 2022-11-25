@@ -1,8 +1,9 @@
 
-import './App.css';
-import './home.css';
-import './about.css'
-import './animalPage.css'
+import './style/App.css'
+import './style/home.css'
+import './style/about.css'
+import './style/animalPage.css'
+import './style/sign.css'
 import { Home } from './pages/Home';
 import { Navbar } from './components/Navbar';
 import { Routes, Route} from 'react-router-dom';

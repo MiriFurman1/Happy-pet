@@ -21,6 +21,8 @@ export function Home() {
             (animals?.map((animal)=>{
                 return <AnimalCard animal={animal} key={animal.id}/>
             }))}
+
+            
             </div>
         </div>
     )
