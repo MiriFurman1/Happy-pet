@@ -1,14 +1,30 @@
 .App {
   text-align: center;
+  max-width:100vw;
+
 }
 
-nav{
-  width:100vw;
-  height:10vh;
-  background-color: #BCC2D0;
+
+/**NavBar **/
+
+a{
+  color: black;
+  text-decoration: none;
 }
-.homePage{
-  background-color: #CFDEE7;
-  height: 90vh;
-  width: 100vw;
+nav{
+  max-width:100vw;
+  height:5vh;
+  background-color: #BAC8F3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+nav a, button{
+  padding:10px;
+  margin:10px;
+background-color: #5E7CE2;
+border: 1px solid black;
+border-radius: 5px;
 }

@@ -1,0 +1,26 @@
+.homePage {
+  background-color: #efeef1;
+  max-width: 100vw;
+  min-height: 100vh;
+
+}
+
+.animalCardDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.animalCardDiv img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.animalCard {
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+  border: 1px black solid;
+  border-radius: 5px;
+}
