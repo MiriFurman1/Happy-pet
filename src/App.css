@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+nav{
+  width:100vw;
+  height:10vh;
+  background-color: #BCC2D0;
+}
+.homePage{
+  background-color: #CFDEE7;
+  height: 90vh;
+  width: 100vw;
+}
