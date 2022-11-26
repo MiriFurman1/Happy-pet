@@ -1,29 +1,33 @@
-.signinPage{
+.loginPage, .signupPage,.passwordPage{
     background-color: #efeef1;
     max-width: 100vw;
     height: 100vh;
     padding-top: 5vh;
+    display: flex;
+    justify-content: center;
 }
 
-.signupPage{
-    background-color: #efeef1;
-    max-width: 100vw;
-    height: 100vh;
-    padding-top: 5vh;
-}
+
 
 form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
+    width:30vw;
+    height:50vh;
+    background-color: #CFDEE7;
+    border-radius: 10px;
 }
 
 form input{
 width:15vw;
 margin:10px;
 padding:10px;
-background-color: #95a6dd;
 border-radius: 5px;
 }
 
+.loginPage a, .signupPage a{
+    color:#4472CA;
+}

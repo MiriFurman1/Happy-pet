@@ -30,6 +30,7 @@ nav{
 nav .buttonsDiv  a, button{
   padding:10px;
   margin:10px;
+  font-weight: 600;
 background-color: #5E7CE2;
 border: 1px solid black;
 border-radius: 5px;

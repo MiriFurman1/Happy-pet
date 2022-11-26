@@ -1,0 +1,72 @@
+import React, { useRef, useState } from "react"
+import { useAuth } from "../contexts/AuthContext"
+import { Link, useNavigate} from "react-router-dom"
+
+export default function UpdateProfile() {
+    const emailRef = useRef()
+    const passwordRef = useRef()
+    const passwordConfirmRef = useRef()
+    const { currentUser, updatePassword, updateEmail } = useAuth()
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
+    const navigate=useNavigate
+
+function StupidComponent(){
+    navigate("/")
+    
+}
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+            return setError("passwords do not match")
+        }
+        const promises = []
+        setError('')
+        setLoading(true)
+
+        if (emailRef.current.value !== currentUser.email) {
+            promises.push(updateEmail(emailRef.current.value))
+        }
+        if (passwordRef.current.value) {
+            promises.push(updatePassword(passwordRef.current.value))
+        }
+
+        console.log(promises);
+        Promise.all(promises)
+            .then(() => {
+                <StupidComponent/>
+                
+                console.log("help me");
+            })
+            .catch((e) => {
+                console.log(e);
+                // setError("Failed to update account")
+
+            })
+            .finally(() => {
+                setLoading(false)
+                console.log(promises);
+            })
+    }
+
+    return (
+        <div className="loginPage">
+
+
+            <form onSubmit={handleSubmit}>
+                <h1>Update profile</h1>
+                <label htmlFor="email" >Email</label>
+                <input name="email" type={"email"} required ref={emailRef} defaultValue={currentUser.email}></input>
+                <label htmlFor="password" >Password</label>
+                <input name="password" type={"password"} ref={passwordRef} placeholder="leave blank to keep the same"></input>
+                <label htmlFor="passwordConfirm" >Password Confirmation</label>
+                <input name="passwordConfirm" type={"password"} ref={passwordConfirmRef} placeholder="leave blank to keep the same"></input>
+                <button disabled={loading} type={"submit"} >Update</button>
+                <button> <Link to="/">Cancel</Link></button>
+                <Link to="/forgot-password">Forgot Password?</Link>
+                {error && <h4>{error}</h4>}
+            </form>
+        </div>
+    )
+}

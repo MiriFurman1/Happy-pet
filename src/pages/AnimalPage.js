@@ -1,5 +1,5 @@
 import { useLocation } from "react-router";
-export function AnimalPage() {
+export  default function AnimalPage() {
     const location = useLocation();
     const animal = location.state;
     console.log(animal);
