@@ -13,6 +13,7 @@ export default function Navbar() {
             navigate("/")
         } catch {
             setError("Failed to logout")
+            console.log(error);
         }
     }
     return (

@@ -47,5 +47,5 @@ export function GetData({setAnimals,setIsLoading}) {
             getData()
         }
         setIsLoading(false)
-    }, [token])
+    }, [token,setAnimals,setIsLoading])
 }
