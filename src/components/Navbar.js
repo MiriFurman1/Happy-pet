@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
-export default function Navbar() {
+export default function Navbar({setAnimalType}) {
     const [error, setError] = useState("")
     const navigate = useNavigate()
     const currentUser = useAuth()
@@ -16,11 +16,14 @@ export default function Navbar() {
             console.log(error);
         }
     }
+    function homeClickHandle(){
+        setAnimalType("")
+    }
     return (
         <nav>
-            <Link to='/'><h1>Happy Pet</h1></Link>
+            <Link to='/' onClick={homeClickHandle}><h1>Happy Pet</h1></Link>
             <div className="buttonsDiv">
-                <Link to='/'>Home</Link>
+                <Link to='/'  onClick={homeClickHandle}>Home</Link>
                 <Link to='about/'>about</Link>
                 </div>
 

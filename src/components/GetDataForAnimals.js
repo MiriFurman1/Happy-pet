@@ -1,7 +1,7 @@
-import { useEffect} from "react";
-import axios from "axios";
-
-export function GetData({setAnimals,setIsLoading,token}) {
+import React from 'react'
+import { useEffect } from 'react'
+import axios from 'axios'
+export default function GetDataForAnimals({setIsLoading,token,animalType,setAnimals}) {
 
     useEffect(() => {
         setIsLoading(true)
@@ -14,7 +14,7 @@ export function GetData({setAnimals,setIsLoading,token}) {
             })
             const getData = async () => {
                 try {
-                    const data = await authAxios.get('/animals?page=11')
+                    const data = await authAxios.get(`/animals?type=${animalType}`)
                     console.log(data);
                     setAnimals(prev=>data.data.animals)
                     setIsLoading(false)
@@ -27,5 +27,5 @@ export function GetData({setAnimals,setIsLoading,token}) {
             
         }
         
-    }, [token,setAnimals,setIsLoading])
+    }, [token,setAnimals,setIsLoading,animalType])
 }

@@ -35,6 +35,7 @@ setLoading(false)
                 <label htmlFor="password" >Password</label>
                 <input name="password" type={"password"} required ref={passwordRef}></input>
                 <button disabled={loading} type={"submit"} >Login</button>
+                <h4>Password must be at least 6 digits</h4>
                 <h3>Already have an account? <Link to="/signup">Sign up</Link></h3>
                 <Link to="/forgot-password">Forgot Password?</Link>
                 {error&&<h4>{error}</h4>}

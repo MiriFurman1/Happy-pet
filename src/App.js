@@ -9,25 +9,26 @@ import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import About from './pages/About';
 import E404 from './pages/E404';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+import Signup from './users/Signup';
+import Login from './users/Login';
 import AnimalPage from './pages/AnimalPage'
 import { AuthProvider } from "./contexts/AuthContext"
-import ForgotPassword from './pages/ForgotPassword'
-import UpdateProfile from './pages/UpdateProfile'
+import ForgotPassword from './users/ForgotPassword'
+import UpdateProfile from './users/UpdateProfile'
 import PrivateRoute from './PrivateRoute'
+import { useState } from "react"
 
 
 function App() {
-
+  const [animalType, setAnimalType] = useState("")
 
   return (
     <div className="App">
 
       <AuthProvider>
-        <Navbar />
+        <Navbar setAnimalType={setAnimalType}/>
         <Routes>
-          <Route exact path='/' element={<Home />} />
+          <Route exact path='/' element={<Home animalType={animalType} setAnimalType={setAnimalType}/>} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/about' element={<About />} />
           <Route path='/login' element={<Login />} />

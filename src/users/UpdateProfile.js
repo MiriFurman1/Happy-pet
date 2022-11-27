@@ -10,7 +10,7 @@ export default function UpdateProfile() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [updated,setUpdated]=useState(false)
-
+    const {login} = useAuth()
 
 
 
@@ -27,6 +27,9 @@ export default function UpdateProfile() {
             promises.push(updateEmail(emailRef.current.value))
         }
         if (passwordRef.current.value) {
+            // if(emailRef.current.value !== currentUser.email){
+            //     promises.push(login(emailRef.current.value, passwordRef.current.value))
+            // }
             promises.push(updatePassword(passwordRef.current.value))
         }
 
@@ -42,7 +45,7 @@ export default function UpdateProfile() {
             })
             .finally(() => {
                 setLoading(false)
-                console.log(promises);
+
             })
     }
 
@@ -59,6 +62,7 @@ export default function UpdateProfile() {
                 <label htmlFor="passwordConfirm" >Password Confirmation</label>
                 <input name="passwordConfirm" type={"password"} ref={passwordConfirmRef} placeholder="leave blank to keep the same"></input>
                 <button disabled={loading} type={"submit"} >Update</button>
+                <h4>Password must be at least 6 digits</h4>
                 <button> <Link to="/">Cancel</Link></button>
                 <Link to="/forgot-password">Forgot Password?</Link>
                 {error && <h4>{error}</h4>}

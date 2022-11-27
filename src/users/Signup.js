@@ -42,6 +42,7 @@ setLoading(false)
                 <label htmlFor="password" >Password Confirmation</label>
                 <input name="passwordConfirm" type={"password"} required ref={passwordConfirmRef}></input>
                 <button disabled={loading} type={"submit"} >Sign Up</button>
+                <h4>Password must be at least 6 digits</h4>
                 <h3>Already have an account? <Link to="/login">Log in</Link></h3>
                 {error&&<h4>{error}</h4>}
             </form>

@@ -1,7 +1,7 @@
-import { useEffect} from "react";
-import axios from "axios";
-
-export function GetData({setAnimals,setIsLoading,token}) {
+import React from 'react'
+import axios from 'axios'
+import { useEffect } from 'react'
+export default function GetAnimalDataById({animalId,setIsLoading,token,setCurrentAnimal}) {
 
     useEffect(() => {
         setIsLoading(true)
@@ -14,9 +14,9 @@ export function GetData({setAnimals,setIsLoading,token}) {
             })
             const getData = async () => {
                 try {
-                    const data = await authAxios.get('/animals?page=11')
-                    console.log(data);
-                    setAnimals(prev=>data.data.animals)
+                    const data = await authAxios.get(`/animals/${animalId}`)
+                    console.log(data.data.animal);
+                    setCurrentAnimal( data.data.animal)
                     setIsLoading(false)
                 }
                 catch (e) {
@@ -27,5 +27,5 @@ export function GetData({setAnimals,setIsLoading,token}) {
             
         }
         
-    }, [token,setAnimals,setIsLoading])
+    }, [token,setIsLoading,animalId,setCurrentAnimal])
 }
