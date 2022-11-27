@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
-import { Link, useNavigate} from "react-router-dom"
+import { Link, Navigate} from "react-router-dom"
 
 export default function UpdateProfile() {
     const emailRef = useRef()
@@ -9,12 +9,10 @@ export default function UpdateProfile() {
     const { currentUser, updatePassword, updateEmail } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const navigate=useNavigate
+    const [updated,setUpdated]=useState(false)
 
-function StupidComponent(){
-    navigate("/")
-    
-}
+
+
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -35,13 +33,11 @@ function StupidComponent(){
         console.log(promises);
         Promise.all(promises)
             .then(() => {
-                <StupidComponent/>
-                
-                console.log("help me");
+                setUpdated(true)
             })
             .catch((e) => {
                 console.log(e);
-                // setError("Failed to update account")
+                setError("Failed to update account, if too long has passed since logging in, try log in again")
 
             })
             .finally(() => {
@@ -66,6 +62,8 @@ function StupidComponent(){
                 <button> <Link to="/">Cancel</Link></button>
                 <Link to="/forgot-password">Forgot Password?</Link>
                 {error && <h4>{error}</h4>}
+                {updated&&<h4>user updated successfully</h4>}
+                {updated&&<Navigate to="/" />}
             </form>
         </div>
     )

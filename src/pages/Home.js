@@ -1,7 +1,6 @@
 import { AnimalCard } from "../components/AnimalCard"
 import { GetData } from "../components/GetData"
 import { useState } from "react"
-
 export default function Home() {
     const [animals,setAnimals]=useState([])
     const [isLoading,setIsLoading]=useState(false)
