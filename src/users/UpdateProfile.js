@@ -10,7 +10,7 @@ export default function UpdateProfile() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [updated,setUpdated]=useState(false)
-    const {login} = useAuth()
+    // const {login} = useAuth()
 
 
 
