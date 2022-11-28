@@ -1,18 +1,18 @@
 import { AnimalCard } from "../components/AnimalCard"
 import { GetData } from "../components/GetData"
 import { useState } from "react"
-import GetToken from "../components/GetToken"
 import GetDataForAnimals from "../components/GetDataForAnimals"
 import { Link } from "react-router-dom"
 
-export default function Home({ animalType, setAnimalType }) {
+export default function Home({ animalType, setAnimalType,token }) {
     const [animals, setAnimals] = useState([])
-    const [token, setToken] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const [currentPage,setCurrentPage]=useState(1)
 
 
 
     function clickHandle(e) {
+        setCurrentPage(prev=>1)
         setAnimalType("")
         console.log(e.target.className);
         if (e.target.className === "all") {
@@ -21,7 +21,13 @@ export default function Home({ animalType, setAnimalType }) {
         else {
             setAnimalType(e.target.className)
         }
+    }
 
+    function handleNextPage(){
+        setCurrentPage(prev=>prev+1)
+    }
+    function handlePreviousPage(){
+        setCurrentPage(prev=>prev-1)
     }
     return (
 
@@ -40,6 +46,7 @@ export default function Home({ animalType, setAnimalType }) {
                     <img alt="" src="/animals/horse-icon.png" className="horse" onClick={clickHandle}></img>
                     <img alt="" src="/animals/hamster-icon.png" width="64px" className="Small-Furry" onClick={clickHandle}></img>
                     <img alt="" src="/animals/fish-icon.png" width="64px" className="Scales-Fins-Other" onClick={clickHandle}></img>
+                    <img alt="" src="/animals/barnyard-icon.png"  width="64px" className="Barnyard" ></img>
                     <img alt="" src="/animals/all-icon.png" className="all" onClick={clickHandle}></img>
                 </div>
 
@@ -57,9 +64,9 @@ export default function Home({ animalType, setAnimalType }) {
                 <h2>{animalType}</h2>
             </div>
             {isLoading && <div className="lds-heart"><div></div></div>}
-            <GetToken setToken={setToken} />
-            {(token && !animalType) && <GetData setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} />}
-            {animalType && <GetDataForAnimals setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} animalType={animalType} />}
+            
+            {(token && !animalType) && <GetData setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} currentPage={currentPage}/>}
+            {animalType && <GetDataForAnimals setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} animalType={animalType} currentPage={currentPage}/>}
             <div className="animalCardDiv">
 
                 {animals?.map((animal) => {
@@ -68,7 +75,10 @@ export default function Home({ animalType, setAnimalType }) {
 
 
             </div>
-            {(token && !isLoading) && <button>Next Page</button>}
+            
+            {(token &&currentPage!==1) && <button onClick={handlePreviousPage}>Previous Page</button>}
+            {token  && <button onClick={handleNextPage}>Next Page</button>}
+            {<h4>Page {currentPage}</h4>}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 
 export default function E404(){
 return(
-    <h3>oops, page not found</h3>
+    <img alt="" src="/public/animals/error 404.png" width="500px"></img>
 )
 }

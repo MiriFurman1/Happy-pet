@@ -15,13 +15,17 @@ export default function SearchPage() {
     const [startSearch, setStartSearch] = useState(false)
     const [animals, setAnimals] = useState("")
     const [selectedBreed, setSelectedBreed] = useState("")
-    
+    const [selectedAge, setSelectedAge] = useState("")
+    const [currentPage,setCurrentPage]=useState(1)
+    const [showPageButtons,setShowPageButtons]=useState(false)
 
     let breedOptions = ""
 
     function handleSubmit(e) {
         e.preventDefault()
+        setCurrentPage(prev=>1)
         setStartSearch(true)
+        setShowPageButtons(true)
     }
 
     function handleSelect(e) {
@@ -40,14 +44,28 @@ export default function SearchPage() {
                 return <option value={breed.name} key={breed.name}>{breed.name}</option>
             })
         }
-
     }
     breedOptionsMaker()
+
+    function handleAgeSelect(e) {
+        console.log(e.target.value);
+        setSelectedAge(e.target.value)
+    }
 
     function handleStateChange(e) {
         console.log(e.target.value);
         setState(e.target.value)
     }
+
+    function handleNextPage(){
+        setCurrentPage(prev=>prev+1)
+        setStartSearch(true)
+    }
+    function handlePreviousPage(){
+        setCurrentPage(prev=>prev-1)
+        setStartSearch(true)
+    }
+
     return (
         <div className='searchPage'>
 
@@ -61,23 +79,34 @@ export default function SearchPage() {
                     <option value="horse">Horse</option>
                     <option value="Small-Furry">Small and Furry animals</option>
                     <option value="Scales-Fins-Other">Fish, turtles and others</option>
+                    <option value="Barnyard">Barnyard</option>
                 </select>
 
-                <GetAnimalBreeds token={token} setBreeds={setBreeds} animalType={animalType} setIsLoading={setIsLoading} state={state} />
+                <GetAnimalBreeds token={token} setBreeds={setBreeds} animalType={animalType} setIsLoading={setIsLoading} />
                 <label>Animal Breed</label>
                 <select id="animalType" onChange={handleBreedSelect}>
                     <option value="" >Show all animals of this type</option>
                     {breeds ? breedOptions : ""}
                 </select>
 
+                <label>Age</label>
+                <select id="animalAge" onChange={handleAgeSelect}>
+                    <option value="" >All</option>
+                    <option value="baby">Baby</option>
+                    <option value="young">Young</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+
                 <label htmlFor='state'>State </label>
                 <input name="state" onChange={handleStateChange}></input>
+
 
 
                 <button type='submit'>Search</button>
             </form>
 
-            {startSearch && <GetSearchData token={token} setAnimals={setAnimals} animalType={animalType} selectedBreed={selectedBreed} setIsLoading={setIsLoading} setStartSearch={setStartSearch} state={state} />}
+            {startSearch && <GetSearchData token={token} setAnimals={setAnimals} animalType={animalType} selectedBreed={selectedBreed} selectedAge={selectedAge} setIsLoading={setIsLoading} setStartSearch={setStartSearch} state={state} currentPage={currentPage}/>}
 
             {((animals.length === 0 && animals !== "") && !isLoading) ? <h2>Animals that fit this description were  not found</h2> : ""}
 
@@ -86,8 +115,13 @@ export default function SearchPage() {
                 {animals !== "" && animals.map((animal) => {
                     return <AnimalCard animal={animal} key={animal.id} token={token} />
                 })}
-
             </div>
+            
+            <div>
+            {currentPage!==1&&showPageButtons && <button onClick={handlePreviousPage}>Previous Page</button>}
+            {showPageButtons && <button onClick={handleNextPage}>Next Page</button>}
+            </div>
+            {showPageButtons&&<h4>Page {currentPage}</h4>}
         </div>
     )
 }

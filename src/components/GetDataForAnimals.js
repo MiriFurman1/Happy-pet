@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react'
 import axios from 'axios'
-export default function GetDataForAnimals({setIsLoading,token,animalType,setAnimals}) {
+export default function GetDataForAnimals({setIsLoading,token,animalType,setAnimals,currentPage}) {
 
     useEffect(() => {
         setIsLoading(true)
@@ -14,7 +14,7 @@ export default function GetDataForAnimals({setIsLoading,token,animalType,setAnim
             })
             const getData = async () => {
                 try {
-                    const data = await authAxios.get(`/animals?type=${animalType}`)
+                    const data = await authAxios.get(`/animals?type=${animalType}&page=${currentPage}`)
                     console.log(data);
                     setAnimals(prev=>data.data.animals)
                     setIsLoading(false)
@@ -27,5 +27,5 @@ export default function GetDataForAnimals({setIsLoading,token,animalType,setAnim
             
         }
         
-    }, [token,setAnimals,setIsLoading,animalType])
+    }, [token,setAnimals,setIsLoading,animalType,currentPage])
 }

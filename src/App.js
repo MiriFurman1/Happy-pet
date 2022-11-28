@@ -21,18 +21,20 @@ import { useState } from "react"
 import AdoptionForm from './pages/AdoptionForm'
 import Footer from './components/Footer'
 import SearchPage from './pages/SearchPage'
-
+import GetToken from './components/GetToken'
 
 function App() {
   const [animalType, setAnimalType] = useState("")
-
+  const [token, setToken] = useState("")
+  
   return (
     <div className="App">
 
       <AuthProvider>
+      <GetToken setToken={setToken} />
         <Navbar setAnimalType={setAnimalType} />
         <Routes>
-          <Route exact path='/' element={<Home animalType={animalType} setAnimalType={setAnimalType} />} />
+          <Route exact path='/' element={<Home animalType={animalType} setAnimalType={setAnimalType} token={token}/>} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/about' element={<About />} />
           <Route path='/login' element={<Login />} />

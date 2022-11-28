@@ -33,9 +33,8 @@ export default function AnimalPage() {
                     {currentAnimal.coat && <h3>Coat:{currentAnimal.coat}</h3>}
                     <h3>Breed: {currentAnimal.breeds.primary}</h3>
                     <h3>Location: {currentAnimal.contact.address.city} {currentAnimal.contact.address.state} {currentAnimal.contact.address.country}</h3>
-
                     {currentAnimal.description && <h3>Description: {currentAnimal.description}</h3>}
-                    <h3 style={{color: "#263C65"}}>Tags:</h3>{currentAnimal.tags.map((tag) => {
+                    {currentAnimal.tags.length!==0&&<h3 style={{color: "#263C65"}}>Tags:</h3>}{currentAnimal.tags.map((tag) => {
                         return <span>{tag} </span>
                     })} <br />
                     <Link to="/adoption-form" state={{ currentAnimal }}><button >I Want To Adopt {currentAnimal.name} !</button></Link>

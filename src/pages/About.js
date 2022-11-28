@@ -1,8 +1,20 @@
 
-export default function About(){
-return( 
-    <div className="aboutPage">
-    <img alt="" src="/animals/about.jpg" width="500px"></img>
-    </div>
-)
+export default function About() {
+    return (
+        <div className="aboutPage">
+            <img alt="" src="/animals/happy pet logo.png" width="300px"></img>
+            <div>
+        <h3> Our goal is to get as many animals as possible adopted to the most suitable families.<br/>
+            We want to make the search and adoption process as easy as possible for you and for the organizations we are working with.
+        </h3>
+        <h3>some examples to our successful adoptions</h3>
+            </div>
+
+            <div>
+                <img alt="" src="/public/animals/alex-nicolopoulos-hxn2HjZHyQE-unsplash.jpg"></img>
+                <img alt="" src="/public/animals/alvan-nee-ZCHj_2lJP00-unsplash.jpg"></img>
+                <img alt="" src="/public/animals/alvan-nee-ZCHj_2lJP00-unsplash.jpg"></img>
+            </div>
+        </div>
+    )
 }

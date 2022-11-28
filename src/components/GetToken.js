@@ -1,9 +1,11 @@
 
 import { useEffect } from 'react';
 export default function GetToken({setToken}) {
-    
+
+
     useEffect(() => {
 
+    
         const getToken = async () => {
             var formdata = new FormData();
             formdata.append("client_id", "nVs9fUcKeD12neygEBUK1iOU4Cs1qbIc1qjpRHWXKSHDPe2Kwr");
@@ -19,7 +21,11 @@ export default function GetToken({setToken}) {
             console.log(tokenData);
             setToken(tokenData.access_token)
         }
-        setInterval(getToken(), 3500000)
+        getToken()
+        setInterval(()=>{
+            getToken();
+        },1800000)
+
     }, [setToken])
 
 }
