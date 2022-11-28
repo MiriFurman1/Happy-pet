@@ -50,7 +50,7 @@ export default function UpdateProfile() {
     }
 
     return (
-        <div className="loginPage">
+        <div className="updateProfilePage">
 
 
             <form onSubmit={handleSubmit}>

@@ -1,9 +1,57 @@
-.animalPage img{
-    height:500px;
-    width:500px;
-    object-fit: cover;
+.animalPage img {
+  height: 45vh;
+  width: 30vw;
+  object-fit: cover;
+  margin: 10px;
+  border: 1px solid #bcc2d0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #bcc2d0;
 }
 
-.animalPage{
-    min-height: 90vh;
+.animalPage {
+  min-height: 90vh;
+  width: 100vw;
+  background-color: #efeef1;
+}
+
+.animalInfo {
+  border: 1px solid #bcc2d0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #bcc2d0;
+  width: 800px;
+  margin-top: 1vh;
+}
+
+.allDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagesDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.animalPage span {
+  background-color: #bac8f3;
+  margin: 10px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 2px;
+}
+
+@media (max-width: 800px) {
+  .animalInfo {
+    width: 80vw;
+  }
+
+  .imagesDiv {
+    flex-direction: column;
+  }
+  .imagesDiv img {
+    width: 60vw;
+    height: 60vh;
+  }
 }

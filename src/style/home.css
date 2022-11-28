@@ -2,7 +2,6 @@
   background-color: #efeef1;
   max-width: 100vw;
   min-height: 100vh;
-
 }
 
 .animalCardDiv {
@@ -21,6 +20,33 @@
   width: 400px;
   height: 400px;
   margin: 20px;
-  border: 1px black solid;
+  border: 1px solid #bcc2d0;
   border-radius: 5px;
+  box-shadow: 1px 1px 5px #bcc2d0;
+}
+
+.animalIcons {
+  display: flex;
+  justify-content: space-around;
+  width: 60vw;
+  height: 64px;
+  flex-wrap: wrap;
+}
+
+.animalIcons:hover {
+  cursor: pointer;
+}
+.homepageMiddleDiv {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.h2Div {
+  color: #4472ca;
+}
+
+@media (max-width: 850px) {
+  .h2Div {
+    margin-top: 10vh;
+  }
 }

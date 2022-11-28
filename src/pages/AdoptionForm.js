@@ -35,7 +35,7 @@ export default function AdoptionForm() {
 
             </form>) : (
                 <div>
-                    <h1>Opps...</h1>
+                    <h1>Oops...</h1>
                     <h2>You need to be logged in to send adoption applications</h2>
                     <img alt="" src='/animals/Pink Simple Creative Pet Shop Flyer.png' height="600px"></img>
                 </div>
