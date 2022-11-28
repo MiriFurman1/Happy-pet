@@ -41,7 +41,30 @@ nav a h1{
   background-color: transparent;
 }
 
+button{
+  font-size: 18px;
+}
 
+
+.imageDiv{
+  display: flex;
+  
+}
+.logoDiv{
+  margin-left: 45vw;
+}
+.searchDiv{
+  margin-left: 15vw;
+  margin-top:5vh;
+
+}
+.searchDiv h2{
+  color:#4472CA;
+}
+footer{
+  background-color: #BAC8F3;
+}
+/** spinner **/
 .lds-heart {
   display: inline-block;
   position: relative;

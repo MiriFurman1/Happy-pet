@@ -1,7 +1,7 @@
-.loginPage, .signupPage,.passwordPage{
+.loginPage, .signupPage,.passwordPage,.adoptionPage{
     background-color: #efeef1;
     max-width: 100vw;
-    height: 100vh;
+    min-height: 85vh;
     padding-top: 5vh;
     display: flex;
     justify-content: center;
@@ -15,7 +15,7 @@ form{
     justify-content: center;
     align-items: center;
     border: 1px solid black;
-    width:30vw;
+    width:40vw;
     height:50vh;
     background-color: #CFDEE7;
     border-radius: 10px;
@@ -30,4 +30,12 @@ border-radius: 5px;
 
 .loginPage a, .signupPage a{
     color:#4472CA;
+}
+
+.adoptionPage form{
+    height: 80vh;
+    width:60vw;
+}
+.adoptionPage input{
+    width:30vw;
 }

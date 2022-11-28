@@ -3,3 +3,7 @@
     width:500px;
     object-fit: cover;
 }
+
+.animalPage{
+    min-height: 90vh;
+}

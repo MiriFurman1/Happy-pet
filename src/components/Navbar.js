@@ -24,7 +24,7 @@ export default function Navbar({setAnimalType}) {
             <Link to='/' onClick={homeClickHandle}><h1>Happy Pet</h1></Link>
             <div className="buttonsDiv">
                 <Link to='/'  onClick={homeClickHandle}>Home</Link>
-                <Link to='about/'>about</Link>
+                <Link to='about/'>About</Link>
                 </div>
 
                 {currentUser.currentUser!==null? 
