@@ -23,6 +23,7 @@ import AdoptionForm from './pages/AdoptionForm'
 import Footer from './components/Footer'
 import SearchPage from './pages/SearchPage'
 import GetToken from './components/GetToken'
+import AdoptionRequests from './pages/AdoptionRequests'
 
 function App() {
   const [animalType, setAnimalType] = useState("")
@@ -43,6 +44,7 @@ function App() {
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/adoption-form' element={<AdoptionForm />} />
           <Route path='/search' element={<SearchPage />} />
+          <Route path='/adoption-requests' element={<AdoptionRequests/>} />
           <Route path='/update-profile'
             element={<PrivateRoute>
               <UpdateProfile />

@@ -37,7 +37,7 @@ export default function SideBar({ setAnimalType, token, handleLogout }) {
                                 <Link to='login/'>Login</Link>
                             </div>
                             <div className="menu-item">
-                                <Link to='signup/'>Signup</Link>
+                                <Link to='signup/'>Sign up</Link>
                             </div>
                         </div>
                     )}

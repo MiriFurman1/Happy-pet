@@ -33,8 +33,9 @@ export default function Navbar({ setAnimalType, token }) {
             <div className="navbarButtons">
                 <div className="buttonsDiv">
                     <Link to='/' onClick={homeClickHandle}>Home</Link>
-                    <Link to='about/'>About</Link>
+                    <Link to='/about'>About</Link>
                     <Link to="/search" state={{ token }}>Search</Link>
+                    <Link to='/adoption-requests'>Adoption Requests</Link>
                 </div>
 
                 {currentUser.currentUser !== null ?
@@ -45,7 +46,7 @@ export default function Navbar({ setAnimalType, token }) {
                     ) : (
                         <div className="buttonsDiv">
                             <Link to='login/'>Login</Link>
-                            <Link to='signup/'>Signup</Link>
+                            <Link to='signup/'>Sign up</Link>
                         </div>
                     )}
 
