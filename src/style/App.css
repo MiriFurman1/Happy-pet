@@ -50,6 +50,7 @@ button{
 
 footer{
   background-color: #BAC8F3;
+  height:3vh;
 }
 /** spinner **/
 .lds-heart {
