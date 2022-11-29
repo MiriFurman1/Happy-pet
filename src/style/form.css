@@ -1,7 +1,7 @@
 .loginPage, .signupPage,.passwordPage,.adoptionPage,.updateProfilePage{
     background-color: #efeef1;
     max-width: 100vw;
-    min-height: 85vh;
+    min-height: 90vh;
     padding-top: 5vh;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ border-radius: 5px;
     color:#4472CA;
 }
 
-.adoptionPage form{
+.adoptionPage form,.signupPage form{
     height: 80vh;
     width:60vw;
 }

@@ -19,8 +19,8 @@ a{
 }
 nav{
   max-width:100vw;
-  height:7vh;
-  background-color: #BAC8F3;
+  height:10vh;
+  background-color: #5C6A89;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -31,7 +31,7 @@ nav .buttonsDiv  a, button{
   padding:10px;
   margin:10px;
   font-weight: 600;
-background-color: #5E7CE2;
+background-color: #BAC8F3;
 border: 1px solid black;
 border-radius: 5px;
 }
@@ -44,8 +44,20 @@ nav a h1{
 button{
   font-size: 18px;
 }
+.navbarButtons{
+  display: flex;
+  align-items: center;
+}
 
+@media(max-width:715px){
+.navbarButtons{
+  visibility: hidden;
+}
+nav .logo{
+  position: absolute;
+}
 
+}
 
 
 footer{
@@ -109,8 +121,3 @@ footer{
 }
 
 
-@media(max-width:550px){
-nav{
-  height:15vh;
-}
-}

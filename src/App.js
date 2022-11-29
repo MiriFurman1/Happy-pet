@@ -5,6 +5,7 @@ import './style/about.css'
 import './style/animalPage.css'
 import './style/form.css'
 import './style/searchPage.css'
+import './style/sidebar.css'
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
@@ -32,7 +33,7 @@ function App() {
 
       <AuthProvider>
       <GetToken setToken={setToken} />
-        <Navbar setAnimalType={setAnimalType} />
+        <Navbar setAnimalType={setAnimalType} token={token} />
         <Routes>
           <Route exact path='/' element={<Home animalType={animalType} setAnimalType={setAnimalType} token={token}/>} />
           <Route path='/signup' element={<Signup />} />

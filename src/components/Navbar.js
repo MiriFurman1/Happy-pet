@@ -1,11 +1,15 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
-export default function Navbar({setAnimalType}) {
+import SideBar from "./SideBar"
+
+
+export default function Navbar({ setAnimalType, token }) {
     const [error, setError] = useState("")
     const navigate = useNavigate()
     const currentUser = useAuth()
     const { logout } = useAuth()
+
     async function handleLogout() {
         setError("")
         try {
@@ -16,31 +20,39 @@ export default function Navbar({setAnimalType}) {
             console.log(error);
         }
     }
-    function homeClickHandle(){
+
+    function homeClickHandle() {
         setAnimalType("")
     }
     return (
         <nav>
-            <Link to='/' onClick={homeClickHandle}><h1>Happy Pet</h1></Link>
-            <div className="buttonsDiv">
-                <Link to='/'  onClick={homeClickHandle}>Home</Link>
-                <Link to='about/'>About</Link>
+            <SideBar setAnimalType={setAnimalType} token={token} handleLogout={handleLogout} />
+
+            <Link to='/' onClick={homeClickHandle} className="logo"><h1>Happy Pet</h1></Link>
+            
+            <div className="navbarButtons">
+                <div className="buttonsDiv">
+                    <Link to='/' onClick={homeClickHandle}>Home</Link>
+                    <Link to='about/'>About</Link>
+                    <Link to="/search" state={{ token }}>Search</Link>
                 </div>
 
-                {currentUser.currentUser!==null? 
-                (<div className="buttonsDiv"> {currentUser.currentUser.email}
-                    <Link to="/update-profile">update profile</Link>
-                    <button onClick={handleLogout}>Logout</button>
-                </div>
-                ):(
-                    <div className="buttonsDiv"> 
-                <Link to='login/'>Login</Link>
-                <Link to='signup/'>Signup</Link>
+                {currentUser.currentUser !== null ?
+                    (<div className="buttonsDiv"> {currentUser.currentUser.email}
+                        <Link to="/update-profile">update profile</Link>
+                        <button onClick={handleLogout}>Logout</button>
                     </div>
-                )}
-                
-                
-            
+                    ) : (
+                        <div className="buttonsDiv">
+                            <Link to='login/'>Login</Link>
+                            <Link to='signup/'>Signup</Link>
+                        </div>
+                    )}
+
+            </div>
+
         </nav>
+
+
     )
 }
