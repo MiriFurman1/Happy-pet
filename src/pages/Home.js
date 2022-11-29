@@ -11,6 +11,7 @@ export default function Home({ animalType, setAnimalType,token }) {
 
 
 
+
     function clickHandle(e) {
         setCurrentPage(prev=>1)
         setAnimalType("")
@@ -46,7 +47,7 @@ export default function Home({ animalType, setAnimalType,token }) {
                     <img alt="" src="/animals/horse-icon.png" className="horse" onClick={clickHandle}></img>
                     <img alt="" src="/animals/hamster-icon.png" width="64px" className="Small-Furry" onClick={clickHandle}></img>
                     <img alt="" src="/animals/fish-icon.png" width="64px" className="Scales-Fins-Other" onClick={clickHandle}></img>
-                    <img alt="" src="/animals/barnyard-icon.png"  width="64px" className="Barnyard" ></img>
+                    <img alt="" src="/animals/barnyard-icon.png"  width="64px" className="Barnyard" onClick={clickHandle}></img>
                     <img alt="" src="/animals/all-icon.png" className="all" onClick={clickHandle}></img>
                 </div>
 
@@ -76,9 +77,11 @@ export default function Home({ animalType, setAnimalType,token }) {
 
             </div>
             
-            {(token &&currentPage!==1) && <button onClick={handlePreviousPage}>Previous Page</button>}
-            {token  && <button onClick={handleNextPage}>Next Page</button>}
+            <div>
+            {(token &&currentPage!==1) && <button onClick={handlePreviousPage} disabled={isLoading}>Previous Page</button>}
+            {token  && <button onClick={handleNextPage} disabled={isLoading}>Next Page</button>}
             {<h4>Page {currentPage}</h4>}
+            </div>
         </div>
     )
 }
