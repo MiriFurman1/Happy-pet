@@ -16,14 +16,15 @@ export default function SearchPage() {
     const [animals, setAnimals] = useState("")
     const [selectedBreed, setSelectedBreed] = useState("")
     const [selectedAge, setSelectedAge] = useState("")
-    const [currentPage,setCurrentPage]=useState(1)
-    const [showPageButtons,setShowPageButtons]=useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    const [showPageButtons, setShowPageButtons] = useState(false)
+    const [lastPage, setLastPage] = useState("")
 
     let breedOptions = ""
 
     function handleSubmit(e) {
         e.preventDefault()
-        setCurrentPage(prev=>1)
+        setCurrentPage(prev => 1)
         setStartSearch(true)
         setShowPageButtons(true)
     }
@@ -57,12 +58,15 @@ export default function SearchPage() {
         setState(e.target.value)
     }
 
-    function handleNextPage(){
-        setCurrentPage(prev=>prev+1)
-        setStartSearch(true)
+    function handleNextPage() {
+
+        if (currentPage < lastPage) {
+            setCurrentPage(prev => prev + 1)
+            setStartSearch(true)
+        }
     }
-    function handlePreviousPage(){
-        setCurrentPage(prev=>prev-1)
+    function handlePreviousPage() {
+        setCurrentPage(prev => prev - 1)
         setStartSearch(true)
     }
 
@@ -106,7 +110,9 @@ export default function SearchPage() {
                 <button type='submit'>Search</button>
             </form>
 
-            {startSearch && <GetSearchData token={token} setAnimals={setAnimals} animalType={animalType} selectedBreed={selectedBreed} selectedAge={selectedAge} setIsLoading={setIsLoading} setStartSearch={setStartSearch} state={state} currentPage={currentPage}/>}
+            {startSearch && <GetSearchData token={token} setAnimals={setAnimals} animalType={animalType}
+                selectedBreed={selectedBreed} selectedAge={selectedAge} setIsLoading={setIsLoading}
+                setStartSearch={setStartSearch} state={state} currentPage={currentPage} setLastPage={setLastPage} />}
 
             {((animals.length === 0 && animals !== "") && !isLoading) ? <h2>Animals that fit this description were  not found</h2> : ""}
 
@@ -116,12 +122,13 @@ export default function SearchPage() {
                     return <AnimalCard animal={animal} key={animal.id} token={token} />
                 })}
             </div>
-            
+
             <div>
-            {currentPage!==1&&showPageButtons && <button onClick={handlePreviousPage}>Previous Page</button>}
-            {showPageButtons && <button onClick={handleNextPage}>Next Page</button>}
+                {currentPage !== 1 && showPageButtons && <button onClick={handlePreviousPage}>Previous Page</button>}
+                {showPageButtons && <button onClick={handleNextPage}>Next Page</button>}
             </div>
-            {showPageButtons&&<h4>Page {currentPage}</h4>}
+            {showPageButtons && <h4>Page {currentPage}</h4>}
+            {(currentPage===lastPage)&&<h4>This is the end of the results</h4>}
         </div>
     )
 }

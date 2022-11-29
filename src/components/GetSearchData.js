@@ -1,7 +1,8 @@
 
 import axios from 'axios'
 import { useEffect } from 'react'
-export function GetSearchData({ token, setAnimals, animalType, selectedBreed, state, setIsLoading, setStartSearch,selectedAge, currentPage}) {
+export function GetSearchData({ token, setAnimals, animalType, selectedBreed, state, setIsLoading, 
+    setStartSearch,selectedAge, currentPage,setLastPage}) {
 
     useEffect(() => {
         setIsLoading(true)
@@ -18,8 +19,8 @@ export function GetSearchData({ token, setAnimals, animalType, selectedBreed, st
                     const locationsString = state ? `&location=${state}` : ""
                     const ageString=selectedAge?`&age=${selectedAge}`:""
                     const data = await authAxios.get(`/animals?type=${animalType}&breed=${selectedBreed}${locationsString}${ageString}&page=${currentPage}`)
-                    console.log(data);
                     setAnimals(prev => data.data.animals)
+                    setLastPage(prev=>data.data.pagination.total_pages)
                     setIsLoading(false)
                     setStartSearch(false)
                 }
@@ -33,5 +34,5 @@ export function GetSearchData({ token, setAnimals, animalType, selectedBreed, st
 
         }
 
-    }, [token, setAnimals, setIsLoading, animalType, selectedBreed, setStartSearch, state,selectedAge,currentPage])
+    }, [token, setAnimals, setIsLoading, animalType, selectedBreed, setStartSearch, state,selectedAge,currentPage,setLastPage])
 }

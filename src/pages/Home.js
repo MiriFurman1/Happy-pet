@@ -8,14 +8,13 @@ export default function Home({ animalType, setAnimalType,token }) {
     const [animals, setAnimals] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [currentPage,setCurrentPage]=useState(1)
-
+    const [lastPage,setLastPage]=useState("")
 
 
 
     function clickHandle(e) {
         setCurrentPage(prev=>1)
         setAnimalType("")
-        console.log(e.target.className);
         if (e.target.className === "all") {
             setAnimalType("")
         }
@@ -25,11 +24,15 @@ export default function Home({ animalType, setAnimalType,token }) {
     }
 
     function handleNextPage(){
-        setCurrentPage(prev=>prev+1)
+        if(currentPage<lastPage){
+            setCurrentPage(prev=>prev+1)
+        }
+
     }
     function handlePreviousPage(){
         setCurrentPage(prev=>prev-1)
     }
+    
     return (
 
         <div className="homePage">
@@ -66,15 +69,13 @@ export default function Home({ animalType, setAnimalType,token }) {
             </div>
             {isLoading && <div className="lds-heart"><div></div></div>}
             
-            {(token && !animalType) && <GetData setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} currentPage={currentPage}/>}
-            {animalType && <GetDataForAnimals setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} animalType={animalType} currentPage={currentPage}/>}
+            {(token && !animalType) && <GetData setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} currentPage={currentPage} setLastPage={setLastPage}/>}
+            {animalType && <GetDataForAnimals setAnimals={setAnimals} setIsLoading={setIsLoading} token={token} animalType={animalType} currentPage={currentPage} setLastPage={setLastPage}/>}
+            
             <div className="animalCardDiv">
-
                 {animals?.map((animal) => {
                     return <AnimalCard animal={animal} key={animal.id} token={token} />
                 })}
-
-
             </div>
             
             <div>

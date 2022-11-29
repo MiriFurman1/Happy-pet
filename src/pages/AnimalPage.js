@@ -14,7 +14,7 @@ export default function AnimalPage() {
 
 
     return (
-        <div className="animalPage">
+        <div className="animalPage" key={currentAnimal.id}>
             {isLoading && <div className="lds-heart"><div></div></div>}
             {!currentAnimal && <GetAnimalDataById animalId={animalId} setIsLoading={setIsLoading} token={token} setCurrentAnimal={setCurrentAnimal} />}
             {currentAnimal && (<div className="allDiv">
