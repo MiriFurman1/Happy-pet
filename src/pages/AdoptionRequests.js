@@ -58,13 +58,13 @@ export default function AdoptionRequests() {
                                 <h3>My request:</h3>
                                 <h4>Name: {request.userName}</h4>
                                 <h4>Phone Number: {request.phoneNumber}</h4>
-                                <h4 style={{ color: "#5C6A89" }}>Why do you think {animal.name} is the right match for you? </h4>
-                                <h4>{request.whyYouFitToAdopt}</h4>
-                                <h4 style={{ color: "#5C6A89" }}>Where {animal.name} will live? </h4>
-                                <h4>{request.livingConditions}</h4>
+                                <h4 >Why do you think {animal.name} is the right match for you? </h4>
+                                <h4 style={{ color: "#5C6A89" }}>{request.whyYouFitToAdopt}</h4>
+                                <h4 >Where {animal.name} will live? </h4>
+                                <h4 style={{ color: "#5C6A89" }}>{request.livingConditions}</h4>
                                 {request.moreInfo&&<div> 
-                                <h4 style={{ color: "#5C6A89" }}>Anything else we should know about?</h4>
-                                <h4> {request.moreInfo}</h4>
+                                <h4>Anything else we should know about?</h4>
+                                <h4  style={{ color: "#5C6A89" }}> {request.moreInfo}</h4>
                                 </div>}
                                 
                             </div>
