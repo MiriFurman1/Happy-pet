@@ -3,7 +3,9 @@ import { useState } from "react";
 import GetAnimalDataById from "../components/GetAnimalDataById"
 import { Link } from "react-router-dom";
 export default function AnimalPage() {
+
     const location = useLocation();
+    console.log(location);
     const animal = location.state.animal;
     const token = location.state.token;
     const animalId = animal.id
@@ -34,7 +36,7 @@ export default function AnimalPage() {
                     <h3>Breed: {currentAnimal.breeds.primary}</h3>
                     <h3>Location: {currentAnimal.contact.address.city} {currentAnimal.contact.address.state} {currentAnimal.contact.address.country}</h3>
                     {currentAnimal.description && <h3>Description: {currentAnimal.description}</h3>}
-                    {currentAnimal.tags.length!==0&&<h3 style={{color: "#263C65"}}>Tags:</h3>}{currentAnimal.tags.map((tag) => {
+                    {currentAnimal.tags.length !== 0 && <h3 style={{ color: "#263C65" }}>Tags:</h3>}{currentAnimal.tags.map((tag) => {
                         return <span>{tag} </span>
                     })} <br />
                     <Link to="/adoption-form" state={{ currentAnimal }}><button >I Want To Adopt {currentAnimal.name} !</button></Link>

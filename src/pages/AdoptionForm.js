@@ -41,7 +41,8 @@ export default function AdoptionForm() {
         phoneNumber: "",
         whyYouFitToAdopt: "",
         livingConditions: "",
-        moreInfo: ""
+        moreInfo: "",
+        animal:""
     })
 
     function changeHandle(e) {
@@ -57,7 +58,8 @@ export default function AdoptionForm() {
         setInfo({
             ...info,
             animalID: animal.id,
-            userEmail: currentUser.currentUser.email
+            userEmail: currentUser.currentUser.email,
+            animal:animal
         })
 
         setFormSubmitted(true)
@@ -75,7 +77,7 @@ export default function AdoptionForm() {
                 <input name="phoneNumber" type="number" required onChange={changeHandle}></input>
                 <label htmlFor='whyYouFitToAdopt'>Why do you think {animal.name} is the right match for you? </label>
                 <input name="whyYouFitToAdopt" type="text" required onChange={changeHandle}></input>
-                <label htmlFor='livingConditions'>Wemhere {animal.name} will live? (indoors/outdoors etc..)</label>
+                <label htmlFor='livingConditions'>Where {animal.name} will live? (indoors/outdoors etc..)</label>
                 <input name="livingConditions" type="text" required onChange={changeHandle}></input>
                 <label htmlFor='moreInfo'>Anything else we should know about?(kids, other animals)</label>
                 <input name="moreInfo" type="text" onChange={changeHandle} ></input>

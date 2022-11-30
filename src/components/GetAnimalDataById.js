@@ -16,8 +16,9 @@ export default function GetAnimalDataById({animalId,setIsLoading,token,setCurren
                 try {
                     const data = await authAxios.get(`/animals/${animalId}`)
                     console.log(data.data.animal);
-                    setCurrentAnimal( data.data.animal)
+                    setCurrentAnimal( data.data.animal);
                     setIsLoading(false)
+                    
                 }
                 catch (e) {
                     console.log(e);

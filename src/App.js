@@ -6,6 +6,7 @@ import './style/animalPage.css'
 import './style/form.css'
 import './style/searchPage.css'
 import './style/sidebar.css'
+import './style/adoptionRequests.css'
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
@@ -24,6 +25,7 @@ import Footer from './components/Footer'
 import SearchPage from './pages/SearchPage'
 import GetToken from './components/GetToken'
 import AdoptionRequests from './pages/AdoptionRequests'
+
 
 function App() {
   const [animalType, setAnimalType] = useState("")

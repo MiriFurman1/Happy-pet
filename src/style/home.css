@@ -50,3 +50,12 @@
     margin-top: 12vh;
   }
 }
+
+@media(max-width:500px){
+.homePage{
+  width:100vw;
+}
+nav{
+  overflow-x: hidden;
+}
+}
