@@ -32,22 +32,32 @@ nav .buttonsDiv  a, button{
   margin:10px;
   font-weight: 600;
 background-color: #BAC8F3;
-border: 1px solid black;
+font-size: 18px;
+border: 1px solid #555c70;
 border-radius: 5px;
+box-shadow: 1px 1px 3px #3f4a66;
+cursor: pointer;
 }
 
 nav a h1{
   border:0px;
   background-color: transparent;
+  overflow-x: hidden;
 }
 
 button{
   font-size: 18px;
+  border: 1px solid #555c70;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px #3f4a66;
+  cursor: pointer;
 }
 .navbarButtons{
   display: flex;
   align-items: center;
+  overflow-x: hidden;
 }
+
 
 @media(max-width:715px){
 .navbarButtons{
@@ -56,7 +66,9 @@ button{
 nav .logo{
   position: absolute;
 }
-
+nav{
+  overflow-x: hidden;
+}
 }
 
 

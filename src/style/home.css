@@ -20,9 +20,14 @@
   width: 400px;
   height: 400px;
   margin: 20px;
-  border: 1px solid #bcc2d0;
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px #bcc2d0;
+
+
+  background: rgba( 123, 161, 206, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(60, 63, 95, 0.37);
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .animalIcons {

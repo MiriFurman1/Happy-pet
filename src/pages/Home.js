@@ -79,9 +79,9 @@ export default function Home({ animalType, setAnimalType,token }) {
             </div>
             
             <div>
-            {(token &&currentPage!==1) && <button onClick={handlePreviousPage} disabled={isLoading}>Previous Page</button>}
-            {token  && <button onClick={handleNextPage} disabled={isLoading}>Next Page</button>}
-            {<h4>Page {currentPage}</h4>}
+            {(token &&currentPage!==1)&&!isLoading && <button onClick={handlePreviousPage} disabled={isLoading}>Previous Page</button>}
+            {(token&&!isLoading)  && <button onClick={handleNextPage} disabled={isLoading}>Next Page</button>}
+            {(token&&!isLoading)&&<h4>Page {currentPage}</h4>}
             </div>
         </div>
     )

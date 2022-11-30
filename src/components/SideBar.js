@@ -12,7 +12,7 @@ export default function SideBar({ setAnimalType, token, handleLogout }) {
     return (
 
 
-        <Menu width>
+        <Menu >
             <div className='hamburger-menu'>
                 <div className="menu-item">
                     <Link to='/' onClick={homeClickHandle}>Home</Link>
@@ -27,10 +27,11 @@ export default function SideBar({ setAnimalType, token, handleLogout }) {
                 </div>
 
                 {currentUser.currentUser !== null ?
-                    (<div> <div>{currentUser.currentUser.email} </div>
+                    (<div> 
                     <div><Link to='/adoption-requests' state={{ token }}>Adoption Requests</Link></div>
                         <div> <Link to="/update-profile">Update profile</Link> </div>
                         <div><a onClick={handleLogout} href="/">Logout</a> </div>
+                        <div>{currentUser.currentUser.email} </div>
                         
                     </div>
                     ) : (
