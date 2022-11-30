@@ -34,7 +34,7 @@ border-radius: 5px;
     color:#4472CA;
 }
 
-.adoptionPage form,.signupPage form{
+.adoptionPage form{
     height: 80vh;
     width:60vw;
 }
@@ -44,6 +44,10 @@ border-radius: 5px;
 
 .updateProfilePage form{
     height: 60vh;
+}
+
+.loginPage form, .signupPage form{
+    height:60vh;
 }
 
 @media(max-width:900px){

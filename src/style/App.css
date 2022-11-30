@@ -55,17 +55,21 @@ button{
 .navbarButtons{
   display: flex;
   align-items: center;
-  overflow-x: hidden;
+
+}
+.logo{
+  
+  position:absolute;
+  top:20px;
+  left:60px;
+
 }
 
-
-@media(max-width:715px){
+@media(max-width:950px){
 .navbarButtons{
   visibility: hidden;
 }
-nav .logo{
-  position: absolute;
-}
+
 nav{
   overflow-x: hidden;
 }

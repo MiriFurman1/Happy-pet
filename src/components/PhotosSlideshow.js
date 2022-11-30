@@ -29,7 +29,7 @@ const PhotoSlideshow = () => {
 
 
     return (
-        <Slide slidesToScroll={3} slidesToShow={3} indicators={true} autoplay={true} responsive={responsiveSettings}>
+        <Slide slidesToScroll={3} slidesToShow={3}  autoplay={true} responsive={responsiveSettings}>
             <div className="each-slide-effect" >
                 <img alt="" src="/animals/about/alex-nicolopoulos-hxn2HjZHyQE-unsplash.jpg"  ></img>
             </div>

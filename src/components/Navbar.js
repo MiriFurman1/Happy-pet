@@ -28,7 +28,7 @@ export default function Navbar({ setAnimalType, token }) {
         <nav>
             <SideBar setAnimalType={setAnimalType} token={token} handleLogout={handleLogout} />
 
-            <Link to='/' onClick={homeClickHandle} className="logo"><h1>Happy Pet</h1></Link>
+            <div className="logo"><Link to='/' onClick={homeClickHandle} ><h1 >Happy Pet</h1></Link></div>
 
             <div className="navbarButtons">
                 <div className="buttonsDiv">
@@ -39,10 +39,11 @@ export default function Navbar({ setAnimalType, token }) {
                 </div>
 
                 {currentUser.currentUser !== null ?
-                    (<div className="buttonsDiv"> {currentUser.currentUser.email}
+                    (<div className="buttonsDiv"> 
                         <Link to='/adoption-requests' state={{ token }}>Adoption Requests</Link>
                         <Link to="/update-profile">Update profile</Link>
                         <button onClick={handleLogout}>Logout</button>
+                        {currentUser.currentUser.email}
                     </div>
                     ) : (
                         <div className="buttonsDiv">
