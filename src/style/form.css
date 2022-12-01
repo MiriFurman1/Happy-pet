@@ -15,7 +15,7 @@ form{
     justify-content: center;
     align-items: center;
     width:40vw;
-    height:50vh;
+    height:60vh;
     background-color: #CFDEE7;
     border-radius: 10px;
     border: 1px solid #BCC2D0;
@@ -43,7 +43,7 @@ border-radius: 5px;
 }
 
 .updateProfilePage form{
-    height: 60vh;
+    height: 65vh;
 }
 
 .loginPage form, .signupPage form{
