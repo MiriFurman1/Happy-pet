@@ -8,7 +8,7 @@
 <li>PetFinder API </li>
 <li>React</li>
 <li>Firebase for user authentication</li>
-<li>react burger menu library</li>
-<li>react slideshow library</li>
+<li>React burger menu library</li>
+<li>React slideshow library</li>
 </ul>
 <a href="https://happy-pet-app.netlify.app/">Netlify link </a>
