@@ -28,5 +28,5 @@
 
 <h2>Conclusion</h2>
 
-<p>The Animal Adoption Site is a simple yet effective web application designed to make the adoption process easier for both animal organizations and individuals looking to adopt pets. If you have any questions, comments, or feedback, please do not hesitate to contact me. Thank you for your interest in this project!</p>
+<p>Happy pet is a simple yet effective web application designed to make the adoption process easier for both animal organizations and individuals looking to adopt pets. If you have any questions, comments, or feedback, please do not hesitate to contact me. Thank you for your interest in this project!</p>
 
