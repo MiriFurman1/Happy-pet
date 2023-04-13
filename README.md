@@ -1,8 +1,8 @@
-<h1>Animal Adoption Site</h1>
+<h1>Happy pet</h1>
 
 <h2>Overview</h2>
 
-<p>The Animal Adoption Site is a web application designed to facilitate the adoption process for animal organizations and individuals looking to adopt pets. This project was developed as a part of my personal learning process and took me approximately a week to complete. The primary goal of this project is to make the adoption process easier for both organizations and individuals. The application leverages the PetFinder API to fetch data on adoptable pets from various animal organizations across the USA.</p>
+<p>Happy pet is a web application designed to facilitate the adoption process for animal organizations and individuals looking to adopt pets. This project was developed as a part of my personal learning process and took me approximately a week to complete. The primary goal of this project is to make the adoption process easier for both organizations and individuals. The application leverages the PetFinder API to fetch data on adoptable pets from various animal organizations across the USA.</p>
 
 <h2>Technologies Used</h2>
 
