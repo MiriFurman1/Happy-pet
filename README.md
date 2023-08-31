@@ -25,7 +25,8 @@
   <li><strong>User Authentication:</strong> Firebase is used for user authentication purposes, enabling users to create accounts and sign in to save their favorite pets.</li>
   <li><strong>Mobile-Responsive Design:</strong> The application has been designed to work on various screen sizes, including mobile devices.</li>
 </ul>
-
+<h2> Live Demo </h2>
+<p>live demo is found at: https://happy-pet-app.netlify.app/</p>
 <h2>Conclusion</h2>
 
 <p>Happy pet is a simple yet effective web application designed to make the adoption process easier for both animal organizations and individuals looking to adopt pets. If you have any questions, comments, or feedback, please do not hesitate to contact me. Thank you for your interest in this project!</p>
